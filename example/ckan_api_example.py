@@ -1,15 +1,19 @@
 from ckan_api_connector import CKANAPIConnector
+from dotenv import load_dotenv
+import os
+load_dotenv()  # loads env. variable from .env file
 
-CKAN_API_URL = "http://localhost:5000/api/3/action"
-CKAN_API_TOKEN = ""
+CKAN_API_URL = os.getenv('CKAN_API_URL')
+CKAN_API_TOKEN = os.getenv('CKAN_API_TOKEN')
 
-# Organization
-ORGANIZATION_NAME = "test_org5"
+
+# Organization data
+ORGANIZATION_NAME = "test_org"
 ORGANIZATION_TITLE = "Test Org Title"
 ORGANIZATION_DESCRIPTION = "Test Org Description"
 ORGANIZATION_LOGO_PATH = "logo.png"
 
-# Dataset
+# Dataset metadata
 DATASET_METADATA = {
     "license_id": "cc-by-sa",
     "name": "test_dataset_name",
@@ -20,7 +24,7 @@ DATASET_METADATA = {
     ]
 }
 
-# Resources
+# Resources metadata
 RESOURCE_FILENAME = "sample.pdf"
 RESOURCE_METADATA = {
     "description": f"This ensemble consists of simulation runs.....",
