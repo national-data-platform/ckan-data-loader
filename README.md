@@ -5,9 +5,9 @@
 1. Setup:  
 - Virtual environment:
 ```shell
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 - Set environment variables:
 ```shell
@@ -25,5 +25,5 @@ Metadata is defined in `wifire_pgml_dataset/data.py`
 - Load data into CKAN:
 ```
 cd wifire_pgml_dataset
-python load_pgml_data.py
+python3 load_pgml_data.py
 ```

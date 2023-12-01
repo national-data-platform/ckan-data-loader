@@ -1,5 +1,5 @@
 # Organization data
-ORGANIZATION_TITLE = "BurnPro3D34"
+ORGANIZATION_TITLE = "BurnPro3D"
 ORGANIZATION_DESCRIPTION = (
     "BurnPro3D is designed for use in fire mitigation by land managers and burn bosses to "
     "prioritize land for treatment, and plan and conduct prescribed burns. The platform is "
@@ -21,7 +21,7 @@ ORGANIZATION_LOGO = "organization_logo.png"
 
 # Dataset metadata
 DATASET_METADATA = {
-    "name": "uniform-ensemble4",
+    "name": "uniform-ensemble",
     "title": "Uniform Fuels QUIC-Fire Simulation Runs Ensemble",
     "license_id": "CCO 1.0",
 
