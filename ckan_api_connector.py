@@ -13,7 +13,7 @@ class CKANAPIConnector:
 
         return resp_json
 
-    def post_organization_create(self, name, title, description):
+    def post_organization_create(self, name, description, title):
         url = f"{self.ckan_api_url}/organization_create"
         headers = {"Authorization": self.ckan_api_token}
         body = {
