@@ -48,6 +48,8 @@ def create_resource(pck_id, resource_metadata):
     # if the resource is a file, take care of it
     file_path = Path(__file__).parent / "resources" / resource_metadata['upload'] \
         if 'upload' in resource_metadata.keys() else None
+    resource_metadata['name'] = resource_metadata['upload'] \
+        if not 'name' in resource_metadata.keys() else resource_metadata['name']
     resp_json = ckan_connector.post_resource_create(
         metadata=resource_metadata,
         package_id=pck_id,
