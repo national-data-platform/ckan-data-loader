@@ -9,20 +9,15 @@ class CKANAPIConnector:
     def get_organizations_list(self):
         url = f"{self.ckan_api_url}/organization_list?all_fields=true"
         resp = requests.get(url, verify=False)
-        resp_json = resp.json()
 
-        return resp_json
+        assert resp.status_code == 200, f"{resp.text}"
+        return resp.json()
 
-    def post_organization_create(self, name, title, description):
+    def post_organization_create(self, organization_data):
         url = f"{self.ckan_api_url}/organization_create"
         headers = {"Authorization": self.ckan_api_token}
-        body = {
-            "name": name,
-            "title": title,
-            "description": description,
-        }
 
-        resp = requests.post(url, headers=headers, json=body, verify=False)
+        resp = requests.post(url, headers=headers, json=organization_data, verify=False)
 
         assert resp.status_code == 200, f"{resp.text}"
         return resp.json()
@@ -35,9 +30,9 @@ class CKANAPIConnector:
         }
 
         resp = requests.post(url, headers=headers, json=body, verify=False)
-        resp_json = resp.json()
+        assert resp.status_code == 200, f"{resp.text}"
 
-        return resp_json
+        return resp.json()
 
     def upload_organization_logo(self, organization_id, logo_path):
         url = f"{self.ckan_api_url}/organization_patch"
@@ -52,34 +47,36 @@ class CKANAPIConnector:
         with open(logo_path, "rb") as logo_file:
             files = {"image_upload": logo_file}
             resp = requests.post(url, data=body, files=files, headers=headers, verify=False)
-            resp_json = resp.json()
 
-        return resp_json
+        assert resp.status_code == 200, f"{resp.text}"
+        return resp.json()
 
     def post_package_create(self, metadata, owner_org):
         url = f"{self.ckan_api_url}/package_create"
         headers = {"Authorization": self.ckan_api_token}
-        body = metadata
+        body = metadata.copy()
         body["owner_org"] = owner_org
+        del body["resources"]  # resources will be added separately
 
         resp = requests.post(url, headers=headers, json=body, verify=False)
 
         assert resp.status_code == 200, f"{resp.text}"
         return resp.json()
 
-    def post_resource_create(self, metadata, package_id, file_path):
+    def post_resource_create(self, metadata, package_id, file_path=None):
         url = f"{self.ckan_api_url}/resource_create"
         headers = {"Authorization": self.ckan_api_token}
         body = metadata
         body["package_id"] = package_id
 
-        # Open and read the logo image as binary data
-        with open(file_path, "rb") as resource_file:
-            files = {"upload": resource_file}
-            resp = requests.post(url, data=body, files=files, headers=headers, verify=False)
-            # resp_json = resp.json()
+        # if resource is a file
+        if file_path:
+            with open(file_path, "rb") as resource_file:
+                files = {"upload": resource_file}
+                resp = requests.post(url, data=body, files=files, headers=headers, verify=False)
 
-        # resp = requests.post(url, headers=headers, json=body, verify=False)
+        else:
+            resp = requests.post(url, data=body, headers=headers, verify=False)
 
         assert resp.status_code == 200, f"{resp.text}"
         return resp.json()

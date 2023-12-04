@@ -1,15 +1,29 @@
 # ckan-data-loader
 
-The examples of using CKAN API are located inside `/ckan_api_scripts` folder.
+### WiFire PGML Dataset:
 
-1. CKAN API URL and CKAN API TOKEN need to be defined inside`ckan_api_example.py`
-```python
-CKAN_API_URL = "http://localhost:5000/api/3/action"
-CKAN_API_TOKEN = "eyJ0eXA...6nTYcf8RBW_IjZppDGGmZw"
+1. Setup:  
+- Virtual environment:
+```shell
+python3 -m venv venv
+source venv/bin/activate
+pip3 install -r requirements.txt
 ```
-2. Run:
+- Set environment variables:
+```shell
+cp .example.env .env
+vim .env
+
+# replace your CKAN host and CKAN API TOKEN:
+# CKAN_API_URL = "http://localhost:5000/api/3/action"
+# CKAN_API_TOKEN = "eyJ0eXA...6nTYcf8RBW_IjZppDGGmZw"
 ```
-cd ckan_api_scripts
-pip install -r requirements.txt
-python ckan_api_example.py
+2. Run PGML Dataset Loader Script
+- Modify data per needs:
+Metadata is defined in `wifire_pgml_dataset/data.py`
+
+- Load data into CKAN:
+```
+cd wifire_pgml_dataset
+python3 load_pgml_data.py
 ```
