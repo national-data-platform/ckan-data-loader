@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 from dataset_metadata import ORGANIZATION_DATA, ORGANIZATION_LOGO, DATASET_METADATA
 
-load_dotenv()
+# load_dotenv()
 CKAN_API_URL = os.getenv('CKAN_API_URL')
 CKAN_API_TOKEN = os.getenv('CKAN_API_TOKEN')
 
