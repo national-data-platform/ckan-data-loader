@@ -80,3 +80,26 @@ class CKANAPIConnector:
 
         assert resp.status_code == 200, f"{resp.text}"
         return resp.json()
+
+    def get_harvest_sources_list(self):
+        url = f"{self.ckan_api_url}/harvest_source_list"
+        resp = requests.get(url, verify=False)
+
+        assert resp.status_code == 200, f"{resp.text}"
+        return resp.json()
+
+    def post_harvest_sources_create(self,data):
+        url = f"{self.ckan_api_url}/harvest_source_create"
+        headers = {"Authorization": self.ckan_api_token}
+        resp = requests.post(url, headers=headers,json=data,verify=False)
+
+        assert resp.status_code == 200, f"{resp.text}"
+        return resp.json()
+
+    def post_harvest_job_create(self,data):
+        url = f"{self.ckan_api_url}/harvest_job_create"
+        headers = {"Authorization": self.ckan_api_token}
+        resp = requests.post(url, headers=headers,json=data,verify=False)
+
+        assert resp.status_code == 200, f"{resp.text}"
+        return resp.json()

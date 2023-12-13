@@ -5,7 +5,7 @@ from pathlib import Path
 # load env. variables from .env file
 from dotenv import load_dotenv
 
-from dataset_metadata import ORGANIZATION_DATA, ORGANIZATION_LOGO, DATASET_METADATA
+from wifire_pgml_dataset.dataset_metadata import ORGANIZATION_DATA, ORGANIZATION_LOGO, DATASET_METADATA
 
 load_dotenv()
 CKAN_API_URL = os.getenv('CKAN_API_URL')
@@ -23,7 +23,7 @@ def create_organization():
     organization_id = resp_json['result']['id']
 
     # Upload logo of new organization
-    logo_path = Path(__file__).parent / "resources" / ORGANIZATION_LOGO
+    logo_path = Path(__file__).parent / "wifire_pgml_dataset" / "resources" / ORGANIZATION_LOGO
     ckan_connector.upload_organization_logo(organization_id, logo_path)
 
     return organization_id
@@ -46,7 +46,7 @@ def create_dataset(org_name):
 def create_resource(pck_id, resource_metadata):
 
     # if the resource is a file, take care of it
-    file_path = Path(__file__).parent / "resources" / resource_metadata['upload'] \
+    file_path = Path(__file__).parent / "wifire_pgml_dataset" /"resources" / resource_metadata['upload'] \
         if 'upload' in resource_metadata.keys() else None
     resource_metadata['name'] = resource_metadata['upload'] \
         if 'name' not in resource_metadata.keys() else resource_metadata['name']
