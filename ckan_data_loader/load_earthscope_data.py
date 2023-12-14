@@ -5,7 +5,7 @@ from pathlib import Path
 # load env. variables from .env file
 from dotenv import load_dotenv
 
-from wifire_pgml_dataset.dataset_metadata import ORGANIZATION_DATA, ORGANIZATION_LOGO, DATASET_METADATA
+from earthscope_dataset.dataset_metadata import ORGANIZATION_DATA, ORGANIZATION_LOGO, DATASET_METADATA
 
 load_dotenv()
 CKAN_API_URL = os.getenv('CKAN_API_URL')
@@ -15,7 +15,6 @@ ckan_connector = CKANAPIConnector(ckan_api_url=CKAN_API_URL, ckan_api_token=CKAN
 
 
 def create_organization():
-
     # Create new organization
     resp_json = ckan_connector.post_organization_create(organization_data=ORGANIZATION_DATA)
 
@@ -23,14 +22,13 @@ def create_organization():
     organization_id = resp_json['result']['id']
 
     # Upload logo of new organization
-    logo_path = Path(__file__).parent / "wifire_pgml_dataset" / "resources" / ORGANIZATION_LOGO
+    logo_path = Path(__file__).parent / "earthscope_dataset" / "resources" / ORGANIZATION_LOGO
     ckan_connector.upload_organization_logo(organization_id, logo_path)
 
     return organization_id
 
 
 def create_dataset(org_name):
-
     # get id of the organization
     orgs_dict = ckan_connector.get_organizations_list()['result']
     organization_id = next(item for item in orgs_dict if item["name"] == org_name)['id']
@@ -44,9 +42,8 @@ def create_dataset(org_name):
 
 
 def create_resource(pck_id, resource_metadata):
-
     # if the resource is a file, take care of it
-    file_path = Path(__file__).parent / "wifire_pgml_dataset" /"resources" / resource_metadata['upload'] \
+    file_path = Path(__file__).parent / "earthscope_dataset" / "resources" / resource_metadata['upload'] \
         if 'upload' in resource_metadata.keys() else None
     resource_metadata['name'] = resource_metadata['upload'] \
         if 'name' not in resource_metadata.keys() else resource_metadata['name']
@@ -62,8 +59,8 @@ def create_resource(pck_id, resource_metadata):
 
 
 if __name__ == '__main__':
+    # create organization
     try:
-        # create organization
         org_id = create_organization()
         print('Created Organization ID:', org_id)
 

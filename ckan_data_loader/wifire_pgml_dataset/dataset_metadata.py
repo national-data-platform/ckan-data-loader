@@ -54,7 +54,10 @@ Ignite_Strip_Southwards.dat
     # ---------------------- end notes -----------------------------------------------------------
 
     "tags": [
-        # {"name": "Test Tag"},
+        {"name": "PGML"},
+        {"name": "Wildfires"},
+        {"name": "Physics Guided Machine Learning"},
+        {"name": "WiFire"},
     ],
     "resources": [
         {
