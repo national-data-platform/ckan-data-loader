@@ -5,7 +5,7 @@
 status_code=0
 while [ $status_code != 200 ]
 do
-   status_code=$(curl -o /dev/null -s -w "%{http_code}\n" http://localhost:5000)
+   status_code=$(curl -o /dev/null -s -w "%{http_code}\n" http://localhost:5000/api)
 done
 
 # Export Datapusher token from INI file to env. variable
