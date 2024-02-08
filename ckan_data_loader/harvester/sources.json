@@ -1,22 +1,19 @@
 [
     {
-        "name": "u-s-fish-wildlife-service",
-        "organization": "u-s-fish-wildlife-service",
-        "title": "U.S. Fish & Wildlife Service",
-        "description": "The United States Fish and Wildlife Service is an agency of the United States Federal Government within the United States Department of the Interior dedicated to the management of fish, wildlife, and natural habitats.",
-        "url": "https://gis-fws.opendata.arcgis.com/data.json",
-        "type": "dcat_json",
+        "name": "wifire_commons",
+        "organization": "wifire_commons",
+        "title": "WIFIRE Commons",
+        "description": "WIFIRE Commons",
+        "url": "https://wifire-data.sdsc.edu/catalog.jsonld",
+        "type": "dcat_rdf",
         "active": true,
-        "frequency": "MANUAL"
-    },
-    {
-        "name": "trpa",
-        "organization": "trpa",
-        "title": "Tahoe Regional Planning Agency",
-        "description": "The Tahoe Regional Planning Agency protects and restores Lake Tahoe’s environment while revitalizing and enhancing our communities. TRPA is charged with regional planning, development and redevelopment oversight, regulatory enforcement, and implementation of environmental protection and restoration programs for the Lake Tahoe Region.",
-        "url": "https://data-trpa.opendata.arcgis.com/data.json",
-        "type": "dcat_json",
-        "active": true,
-        "frequency": "MANUAL"
+        "frequency": "WEEKLY",
+        "config": {
+            "api_version": 1,
+            "default_extras": {"encoding":"utf8"},
+            "organizations_filter_exclude": ["burnpro3d","mint"],
+            "override_extras": true,
+            "remote_orgs": "create"
+           }
     }
 ]

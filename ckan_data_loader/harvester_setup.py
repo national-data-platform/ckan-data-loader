@@ -48,6 +48,10 @@ for source in sources:
                     "frequency": source['frequency'],
                     "config": None,
                 }
+        #overwrite config field if present
+        if "config" in sources and sources["config"] != None:
+            data["config"] = source["config"]
+
         resp_json = ckan_connector.post_harvest_sources_create(data)
         source_uuid = resp_json['result']['id']#returns a dict and not a list
         created_source_uuids.append(source_uuid)
