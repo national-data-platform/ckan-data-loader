@@ -6,8 +6,8 @@ class CKANAPIConnector:
         self.ckan_api_url = ckan_api_url
         self.ckan_api_token = ckan_api_token
 
-    def get_organizations_list(self):
-        url = f"{self.ckan_api_url}/organization_list?all_fields=true"
+    def get_organizations_list(self, all_fields=True):
+        url = f"{self.ckan_api_url}/organization_list?all_fields={str(all_fields).lower()}"
         resp = requests.get(url, verify=False)
 
         assert resp.status_code == 200, f"{resp.text}"
@@ -103,3 +103,35 @@ class CKANAPIConnector:
 
         assert resp.status_code == 200, f"{resp.text}"
         return resp.json()
+
+    def get_org_logo_url(self, org_id, ckan_url):
+        # API endpoint for getting organization details
+        api_endpoint = f"{ckan_url}/api/3/action/organization_show?id={org_id}"
+
+        # Make the API request
+        response = requests.get(api_endpoint)
+
+        # Check if the request was successful
+        if response.status_code == 200:
+            data = response.json()
+            # Assuming the logo URL is in 'image_display_url'
+            source_pic_url = data['result'].get('image_display_url', 'No logo available')
+            pic_name = data['result'].get('image_url', 'No logo available')
+            print(source_pic_url)
+            return source_pic_url, pic_name
+        else:
+            print("Failed to retrieve organization details")
+
+    def download_org_logo(self, source_pic_url, file_name):
+        # Send a GET request to the image URL
+        response = requests.get(source_pic_url)
+
+        # Check if the request was successful (status code 200)
+        if response.status_code == 200:
+            # Open a file in binary write mode
+            with open(file_name, "wb") as file:
+                # Write the content of the response (the image) to the file
+                file.write(response.content)
+            print("Image downloaded successfully.")
+        else:
+            print("Failed to download the image.")
