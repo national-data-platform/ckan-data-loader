@@ -50,7 +50,7 @@ for source in sources:
                 }
         #overwrite config field if present
         if "config" in source and source["config"] != None:
-            data["config"] = source["config"]
+            data["config"] = json.dumps(source["config"])
 
         resp_json = ckan_connector.post_harvest_sources_create(data)
         source_uuid = resp_json['result']['id']#returns a dict and not a list
