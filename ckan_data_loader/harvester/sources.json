@@ -4,14 +4,31 @@
         "organization": "wifire_commons",
         "title": "WIFIRE Commons",
         "description": "WIFIRE Commons",
-        "url": "https://wifire-data.sdsc.edu/catalog.jsonld",
-        "type": "dcat_rdf",
+        "url": "https://wifire-data.sdsc.edu",
+        "type": "ckan",
         "active": true,
-        "frequency": "WEEKLY",
+        "frequency": "MANUAL",
         "config": {
             "api_version": 1,
             "default_extras": {"encoding":"utf8"},
             "organizations_filter_exclude": ["burnpro3d","mint"],
+            "override_extras": true,
+            "remote_orgs": "create"
+           }
+    },
+    {
+        "name": "earthscope_consortium",
+        "organization": "earthscope_consortium",
+        "title": "Earthscope Consortium",
+        "description": "Earthscope Consortium",
+        "url": "https://ip-155-101-6-193.chpc.utah.edu:8443",
+        "type": "ckan",
+        "active": true,
+        "frequency": "MANUAL",
+        "config": {
+            "api_version": 1,
+            "default_extras": {"encoding":"utf8"},
+            "organizations_filter_include": ["earthscope_consortium"],
             "override_extras": true,
             "remote_orgs": "create"
            }
