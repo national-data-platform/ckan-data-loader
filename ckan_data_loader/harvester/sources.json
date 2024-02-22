@@ -21,7 +21,7 @@
         "organization": "earthscope_consortium",
         "title": "Earthscope Consortium",
         "description": "Earthscope Consortium",
-        "url": "https://ckan.geosciframe.org:8443",
+        "url": "https://ip-155-101-6-193.chpc.utah.edu:8443",
         "type": "ckan",
         "active": true,
         "frequency": "MANUAL",
