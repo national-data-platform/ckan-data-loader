@@ -11,7 +11,7 @@ ORGANIZATION_DATA = {
     "name": ORGANIZATION_TITLE.lower().replace(' ', '_'),
     "description": ORGANIZATION_DESCRIPTION,
 }
-ORGANIZATION_LOGO = "organization_logo.png"
+ORGANIZATION_LOGO = "earthscope_consortium.png"
 
 # Dataset metadata
 DATASET_METADATA = {
