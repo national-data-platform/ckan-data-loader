@@ -7,7 +7,7 @@
         "url": "https://wifire-data.sdsc.edu",
         "type": "ckan",
         "active": true,
-        "frequency": "MANUAL",
+        "frequency": "WEEKLY",
         "config": {
             "api_version": 1,
             "default_extras": {"encoding":"utf8"},
