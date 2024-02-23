@@ -17,7 +17,7 @@ ORGANIZATION_DATA = {
     "name": ORGANIZATION_TITLE.lower(),
     "description": ORGANIZATION_DESCRIPTION,
 }
-ORGANIZATION_LOGO = "organization_logo.png"
+ORGANIZATION_LOGO = "burnpro3d.png"
 
 # Dataset metadata
 DATASET_METADATA = {

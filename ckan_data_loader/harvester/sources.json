@@ -7,7 +7,7 @@
         "url": "https://wifire-data.sdsc.edu",
         "type": "ckan",
         "active": true,
-        "frequency": "MANUAL",
+        "frequency": "WEEKLY",
         "config": {
             "api_version": 1,
             "default_extras": {"encoding":"utf8"},
@@ -24,13 +24,12 @@
         "url": "https://ip-155-101-6-193.chpc.utah.edu:8443",
         "type": "ckan",
         "active": true,
-        "frequency": "MANUAL",
+        "frequency": "WEEKLY",
         "config": {
             "api_version": 1,
             "default_extras": {"encoding":"utf8"},
             "organizations_filter_include": ["earthscope_consortium"],
-            "override_extras": true,
-            "remote_orgs": "create"
+            "override_extras": true
            }
     }
 ]

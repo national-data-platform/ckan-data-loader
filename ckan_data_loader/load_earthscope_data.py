@@ -22,7 +22,7 @@ def create_organization():
     organization_id = resp_json['result']['id']
 
     # Upload logo of new organization
-    logo_path = Path(__file__).parent / "earthscope_dataset" / "resources" / ORGANIZATION_LOGO
+    logo_path = Path(__file__).parent / "org_logos" / ORGANIZATION_LOGO
     ckan_connector.upload_organization_logo(organization_id, logo_path)
 
     return organization_id

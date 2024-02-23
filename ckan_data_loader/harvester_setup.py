@@ -34,6 +34,14 @@ for source in sources:
                     'description': source['description']
                     }
         resp_json = ckan_connector.post_organization_create(organization_data=org_data)
+        organization_id = resp_json['result']['id']
+
+        # Upload logo of new organization if png file with the same name exists in org_logos folder
+        try:
+            logo_path = Path(__file__).parent / "org_logos" / f"{source['name']}.png"
+            ckan_connector.upload_organization_logo(organization_id, logo_path)
+        except:
+            pass
 
     #create harvest source if it does not exist
     #title is return as the name of it instead of actual name
