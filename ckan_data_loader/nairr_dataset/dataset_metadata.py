@@ -25,6 +25,7 @@ DATASET_METADATA = {
     "name": "hls-burn-scar-scenes",
     "title": "HLS Burn Scar Scenes",
     "license_id": "cc-by-4.0",
+    "url": "https://huggingface.co/datasets/ibm-nasa-geospatial/hls_burn_scars",
 
     # ---------------------- notes text -----------------------------------------------------------
     "notes": """Dataset Summary:
@@ -99,15 +100,15 @@ If this dataset helped your research, please cite HLS Burn Scars in your publica
     "maintainer_email": "cep0013@uah.edu",
     "resources": [
         {
-            "name": "Dataset Source Page",
+            "name": "Dataset (HuggingFace)",
             "url": "https://huggingface.co/datasets/ibm-nasa-geospatial/hls_burn_scars",
         },
         {
-            "name": "Model on HuggingFace",
+            "name": "Model (HuggingFace)",
             "url": "https://huggingface.co/ibm-nasa-geospatial/Prithvi-100M-burn-scar",
         },
         {
-            "name": "Code and configs for fine-tuning",
+            "name": "Code and configs for fine-tuning (GIT)",
             "url": "https://github.com/NASA-IMPACT/hls-foundation-os",
         },
     ]
