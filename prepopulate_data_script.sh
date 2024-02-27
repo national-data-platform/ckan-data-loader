@@ -18,6 +18,7 @@ echo "Populating data.."
 python ckan_data_loader/load_pgml_data.py;
 python ckan_data_loader/load_qf_data.py;
 python ckan_data_loader/load_earthscope_data.py;
+python ckan_data_loader/load_nairr_data.py;
 echo "Populating data done."
 
 # Run harvester setup script
