@@ -76,7 +76,7 @@ class CKANAPIConnector:
                 resp = requests.post(url, data=body, files=files, headers=headers, verify=False)
 
         else:
-            resp = requests.post(url, data=body, headers=headers, verify=False)
+            resp = requests.post(url, json=body, headers=headers, verify=False)
 
         assert resp.status_code == 200, f"{resp.text}"
         return resp.json()

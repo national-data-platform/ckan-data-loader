@@ -20,9 +20,18 @@ DATASET_METADATA = {
     "license_id": "",
 
     # ---------------------- notes text -----------------------------------------------------------
-    "notes": """
-    ### EarthScope Stations Dataset Notes
-    """,
+    "notes": """The EarthScope Consortium (https://www.earthscope.org) streams three-dimensional Global Navigation Satellite 
+    System (GNSS) high rate (1hz) position time series from nearly a thousand EarthScope and related GNSS stations. 
+    These high precision ground-motion time series are used to study a range of geophysical phenomena including 
+    earthquakes, volcanos, tsunamis, hydrologic loads, and glaciers. EarthScope is dedicated to supporting 
+    transformative global geophysical research and education through operation of the National Science Foundation’s (
+    NSF) Geodetic GAGE and Seismic SAGE facilities. As part of the National Data Platform (NDP) EarthScope pilot 
+    project, the EarthScope GNSS position time series streams are being stored and made available from Data 
+    Collaboratory Kafka servers at the University of Utah. This Jupyter Notebook provides tools for access and 
+    plotting of sample real time streams and is the foundation for additional services being developed that will 
+    facilitate time series analysis including machine learning.
+    
+    Users of EarthScope data agree to follow the EarthScope streaming data policy (https://www.unavco.org/data/policies_forms/data-policy/data-policy-realtime-streaming-gps/data-policy-realtime-streaming-gps.html)""",
     # ---------------------- end notes -----------------------------------------------------------
 
     "tags": [
