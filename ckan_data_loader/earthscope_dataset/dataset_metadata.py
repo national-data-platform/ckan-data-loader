@@ -20,7 +20,7 @@ DATASET_METADATA = {
     "license_id": "",
 
     # ---------------------- notes text -----------------------------------------------------------
-    "notes": """The EarthScope Consortium ([www.earthscope.org](https://www.earthscope.org)) streams three-dimensional Global Navigation Satellite 
+    "notes": """The EarthScope Consortium (https://www.earthscope.org) streams three-dimensional Global Navigation Satellite 
     System (GNSS) high rate (1hz) position time series from nearly a thousand EarthScope and related GNSS stations. 
     These high precision ground-motion time series are used to study a range of geophysical phenomena including 
     earthquakes, volcanos, tsunamis, hydrologic loads, and glaciers. EarthScope is dedicated to supporting 
@@ -31,9 +31,7 @@ DATASET_METADATA = {
     plotting of sample real time streams and is the foundation for additional services being developed that will 
     facilitate time series analysis including machine learning.
     
-    Users of EarthScope data agree to follow the [EarthScope streaming data policy](
-    https://www.unavco.org/data/policies_forms/data-policy/data-policy-realtime-streaming-gps/data-policy-realtime
-    -streaming-gps.html)""",
+    Users of EarthScope data agree to follow the EarthScope streaming data policy (https://www.unavco.org/data/policies_forms/data-policy/data-policy-realtime-streaming-gps/data-policy-realtime-streaming-gps.html)""",
     # ---------------------- end notes -----------------------------------------------------------
 
     "tags": [
